@@ -14,7 +14,7 @@ export function StoreItem({
   title,
 }: StoreItemProps) {
   return (
-    <div className="">
+    <div>
       <img src={thumbnail} className="h-40 w-full" />
       <div className="flex items-center mt-1 px-2">
         <div className="flex-1 text-lg">{title}</div>
