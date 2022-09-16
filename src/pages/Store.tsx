@@ -1,20 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { StoreItem } from "../components/StoreItem";
+import { GlobalContext } from "../context/context";
 
-import { UseProductsHook } from "../context/productsHooks";
 export function Store() {
-  const productsHook = UseProductsHook();
-  const { getProducts, storeItem } = productsHook;
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
   return (
-    <div className="grid grid-cols-4 gap-4">
-      {storeItem.map((item) => (
-        <StoreItem {...item} />
-      ))}
-    </div>
+    <div>store page</div>
+    // <div className="grid grid-cols-4 gap-4">
+    //   {storeItem.map((item) => (
+    //     <StoreItem {...item} key={item.id} />
+    //   ))}
+    // </div>
   );
 }

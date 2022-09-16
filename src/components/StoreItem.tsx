@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { GlobalContext } from "../context/context";
+
 type StoreItemProps = {
   brand: string;
   id: number;
@@ -13,16 +16,28 @@ export function StoreItem({
   thumbnail,
   title,
 }: StoreItemProps) {
+  const { increaseItem, removeItem } = useContext(GlobalContext);
   return (
-    <div>
+    <div className="shadow-lg p-2">
       <img src={thumbnail} className="h-40 w-full" />
-      <div className="flex items-center mt-1 px-2">
+      <div className="flex">
         <div className="flex-1 text-lg">{title}</div>
-        <div className="flex">
-          <button className="bg-slate-500 px-2 rounded">-</button>
-          <div className="mx-2 font-medium">1</div>
-          <button className="bg-slate-500 px-2 rounded">+</button>
-        </div>
+        <div>${price}</div>
+      </div>
+      <div className="flex justify-between font-medium">
+        <button
+          className="bg-slate-500 px-2 rounded shadow-lg hover:text-slate-300 text-slate-200"
+          onClick={() => increaseItem(id)}
+        >
+          Add To Cart
+        </button>
+
+        <button
+          className="bg-red-300 px-2 rounded shadow-lg hover:text-gray-700 text-gray-500"
+          onClick={() => removeItem(id)}
+        >
+          Remove
+        </button>
       </div>
     </div>
   );
